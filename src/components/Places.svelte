@@ -1,6 +1,5 @@
 <script>
     import PlacesData from "../assets/places.json";
-    //import PlacesData from "../assets/places.json";
 
     const data = PlacesData;
     let isHidden = true;
