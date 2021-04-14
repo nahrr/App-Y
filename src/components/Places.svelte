@@ -1,65 +1,57 @@
 <script>
     import PlacesData from "../assets/places.json";
+    //import PlacesData from "../assets/places.json";
 
     const data = PlacesData;
-    var searchValue = "";
+    let isHidden = true;
+    let searchValue = "";
+    function toggle() {
+        isHidden = false;
+    }
 
     $: placesList = data.filter(
         (item) =>
             item.location.toUpperCase().includes(searchValue.toUpperCase()) ||
             item.country.toUpperCase().startsWith(searchValue.toUpperCase())
     );
-
-    // function placesList() {
-
-    //     var tempPlaces = data;
-    //     //Not rly sure about this to be honest
-    //     if (searchValue != "" && searchValue) {
-
-    //         tempPlaces = tempPlaces.filter((item) => {
-    //             return (
-    //                 item.location
-    //                     .toUpperCase()
-    //                     .includes(searchValue.toUpperCase()) ||
-    //                 item.country
-    //                     .toUpperCase()
-    //                     .startsWith(searchValue.toUpperCase())
-    //             );
-    //         });
-    //     }
-    //     console.log(tempPlaces);
-    //     return tempPlaces;
-
-    // }
 </script>
 
 <div>
     <h1>Places</h1>
-    <div class="show_Places_panel">
-        <button>Get Places</button>
-        <div class="show_Places">
-            <div class="search_panel">
-                <!-- <label>Search places:</label> -->
-                <input
-                    on:input={placesList}
-                    bind:value={searchValue}
-                    placeholder="Filter..."
-                />
-            </div>
+    <div class="show_places_panel">
+        {#if isHidden}
+            <button on:click={toggle}>Get Places</button>
+        {/if}
+        {#if !isHidden}
+            <div class="show_Places">
+                <div class="search_panel">
+                    <label
+                        >Search places:
+                        <input
+                            on:input={placesList}
+                            bind:value={searchValue}
+                            placeholder="Filter..."
+                        />
+                    </label>
+                </div>
 
-            {#each placesList as place (place.id)}
-                <div class="place_data">
-                    <div class="places">
-                        <div>{place.country}</div>
-                        <div>{place.location}</div>
-                        <div class="card">
-                            <!-- svelte-ignore a11y-missing-attribute -->
-                            <img src={place.image} />
+                {#each placesList as place (place.id)}
+                    <div class="place_data">
+                        <div class="places">
+                            <div>
+                                {place.country}
+                            </div>
+                            <div>
+                                {place.location}
+                            </div>
+                            <div class="card">
+                                <img src={place.image} alt="city" />
+                            </div>
                         </div>
                     </div>
-                </div>
-            {/each}
-        </div>
+                {/each}
+            </div>
+        {/if}
     </div>
 </div>
 
@@ -89,13 +81,13 @@
     input:focus {
         background-color: rgb(204, 248, 175);
     }
-    /* label {
-  font-weight: bold;
-  margin-right: 1rem;
-} */
+    label {
+        font-weight: bold;
+        margin-right: 1rem;
+    }
     .place_data:nth-child(odd) {
-  background-color: rgb(245, 239, 239);
-}
+        background-color: rgb(245, 239, 239);
+    }
     .places {
         flex-grow: 8;
         text-align: left;
