@@ -1,0 +1,74 @@
+[
+  {
+    "id": 0,
+    "location": "London",
+    "image": "./images/London.jpg",
+    "country": "UK"
+  },
+  {
+    "id": 1,
+    "location": "New York City",
+    "image": "./images/NYC.jpg",
+    "country": "US"
+  },
+  {
+    "id": 2,
+    "location": "Gothenburg",
+    "image": "./images/Gothenburg.jpg",
+    "country": "SE"
+  },
+  {
+    "id": 3,
+    "location": "Luleå",
+    "image": "./images/Lulea.jpg",
+    "country": "SE"
+  },
+  {
+    "id": 4,
+    "location": "Barcelona",
+    "image": "./images/Barcelona.jpg",
+    "country": "ES"
+  },
+  {
+    "id": 5,
+    "location": "Prague",
+    "image": "./images/Prague.jpg",
+    "country": "CZ"
+  },
+  {
+    "id": 6,
+    "location": "Manchester",
+    "image": "./images/Manchester.jpg",
+    "country": "UK"
+  },
+  {
+    "id": 7,
+    "location": "Madrid",
+    "image": "./images/Madrid.jpg",
+    "country": "ES"
+  },
+  {
+    "id": 8,
+    "location": "Tokyo",
+    "image": "./images/Tokyo.jpg",
+    "country": "JP"
+  },
+  {
+    "id": 9,
+    "location": "Perth",
+    "image": "./images/Perth.jpg",
+    "country": "AU"
+  },
+  {
+    "id": 10,
+    "location": "Auckland",
+    "image": "./images/Auckland.jpg",
+    "country": "UK"
+  },
+  {
+    "id": 11,
+    "location": "London",
+    "image": "./images/London.jpg",
+    "country": "UK"
+  }
+]
