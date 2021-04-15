@@ -22,10 +22,10 @@
             <button on:click={toggle}>Get Places</button>
         {/if}
         {#if !isHidden}
-            <div class="show_Places">
+            <div class="show_places">
                 <div class="search_panel">
-                    <label
-                        >Search places:
+                    <label>
+                        Search places:
                         <input
                             on:input={placesList}
                             bind:value={searchValue}
@@ -33,7 +33,6 @@
                         />
                     </label>
                 </div>
-
                 {#each placesList as place (place.id)}
                     <div class="place_data">
                         <div class="places">

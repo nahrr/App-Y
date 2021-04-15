@@ -87,7 +87,7 @@ async function updateJsonFile() {
         id: i,
         location: "Auckland",
         image: "./images/Auckland.jpg",
-        country: "UK"
+        country: "NZ"
       })
     }
 
