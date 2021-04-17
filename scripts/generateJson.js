@@ -7,7 +7,7 @@ async function updateJsonFile() {
   const jsonArray = [];
 
 
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 10000; i++) {
     if (i === 0 || (i - 11) % 11 === 0) {
       jsonArray.push({
         id: i,

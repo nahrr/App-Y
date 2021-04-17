@@ -1,14 +1,19 @@
 <script>
     import PlacesData from "../assets/places.json";
 
-    const data = PlacesData;
+    const minData = PlacesData.slice(0, 10);
+    const tenthData = PlacesData.slice(0, 100);
+    const halfData = PlacesData.slice(0, 500);
+    let allData = PlacesData;
+
     let isHidden = true;
     let searchValue = "";
+
     function toggle() {
         isHidden = false;
     }
 
-    $: placesList = data.filter(
+    $: placesList = allData.filter(
         (item) =>
             item.location.toUpperCase().includes(searchValue.toUpperCase()) ||
             item.country.toUpperCase().startsWith(searchValue.toUpperCase())
@@ -32,6 +37,32 @@
                             placeholder="Filter..."
                         />
                     </label>
+                    <div class="search--panel--btn__container">
+                        <button
+                            on:click={() => (allData = PlacesData)}
+                            class="search--panel--btn"
+                        >
+                            Show 1000
+                        </button>
+                        <button
+                            on:click={() => (allData = halfData)}
+                            class="search--panel--btn"
+                        >
+                            Show 500
+                        </button>
+                        <button
+                            on:click={() => (allData = tenthData)}
+                            class="search--panel--btn"
+                        >
+                            Show 100
+                        </button>
+                        <button
+                            on:click={() => (allData = minData)}
+                            class="search--panel--btn"
+                        >
+                            Show 10
+                        </button>
+                    </div>
                 </div>
                 {#each placesList as place (place.id)}
                     <div class="place_data">
@@ -111,5 +142,9 @@
         border-bottom: 2px solid #ccc;
         padding: 1rem;
         max-width: 55rem;
+        justify-content: space-between;
+    }
+    .search--panel--btn {
+        margin-left: 8px;
     }
 </style>
