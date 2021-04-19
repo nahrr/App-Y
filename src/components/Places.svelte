@@ -145,6 +145,16 @@
         justify-content: space-between;
     }
     .search--panel--btn {
-        margin-left: 8px;
+        margin: 0;
+        max-height: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .search--panel--btn__container {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+        column-gap: 8px;
     }
 </style>
