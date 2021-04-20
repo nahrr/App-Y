@@ -25,8 +25,7 @@
     <div class="show_places_panel">
         {#if isHidden}
             <button on:click={toggle}>Get Places</button>
-        {/if}
-        {#if !isHidden}
+        {:else}
             <div class="show_places">
                 <div class="search_panel">
                     <label>
