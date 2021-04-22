@@ -5,13 +5,14 @@
     const tenthData = PlacesData.slice(0, 100);
     const halfData = PlacesData.slice(0, 500);
     let allData = PlacesData;
-
     let isHidden = true;
     let searchValue = "";
 
     function toggle() {
         isHidden = false;
     }
+
+    $: placesCount = placesList.length;
 
     $: placesList = allData.filter(
         (item) =>
@@ -21,12 +22,15 @@
 </script>
 
 <div>
-    <h1>Places</h1>
+    <h1>Places - App Y</h1>
     <div class="show_places_panel">
         {#if isHidden}
-            <button on:click={toggle}>Get Places</button>
+            <button class="main__button" on:click={toggle}>Get Places</button>
         {:else}
             <div class="show_places">
+                <div class="testPls">
+                    <strong>{placesCount} posts have been loaded </strong>
+                </div>
                 <div class="search_panel">
                     <label>
                         Search places:
@@ -41,7 +45,7 @@
                             on:click={() => (allData = PlacesData)}
                             class="search--panel--btn"
                         >
-                            Show 1000
+                            Show 10000
                         </button>
                         <button
                             on:click={() => (allData = halfData)}
@@ -93,9 +97,17 @@
         transition: all 0.2s;
         color: #2c3e50;
     }
+
     button:hover {
         background-color: rgb(204, 248, 175);
     }
+
+    .main__button:active {
+        transition: all 0.25s ease;
+        width: 10rem;
+        opacity: 0.2;
+    }
+
     img {
         width: 10rem;
         height: 5rem;
@@ -103,19 +115,24 @@
         border-radius: 0.1rem;
         box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.5);
     }
+
     input:hover {
         background-color: rgb(204, 248, 175);
     }
+    
     input:focus {
         background-color: rgb(204, 248, 175);
     }
+
     label {
         font-weight: bold;
         margin-right: 1rem;
     }
+
     .place_data:nth-child(odd) {
         background-color: rgb(245, 239, 239);
     }
+
     .places {
         flex-grow: 8;
         text-align: left;
@@ -124,6 +141,7 @@
         justify-content: space-between;
         font-weight: bold;
     }
+
     .place_data {
         display: flex;
         align-items: center;
@@ -133,6 +151,7 @@
         padding: 1rem;
         max-width: 55rem;
     }
+
     .search_panel {
         display: flex;
         align-items: center;
@@ -143,6 +162,7 @@
         max-width: 55rem;
         justify-content: space-between;
     }
+
     .search--panel--btn {
         margin: 0;
         max-height: 1rem;
